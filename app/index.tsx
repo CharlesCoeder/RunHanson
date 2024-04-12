@@ -15,7 +15,7 @@ export default function Index() {
     if (data.user) {
       router.replace("/(tabs)");
     } else {
-      router.replace("/login");
+      router.replace("/auth/login");
     }
   };
 

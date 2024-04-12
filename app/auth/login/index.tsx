@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Alert, StyleSheet, View, Text, TextInput, Button } from "react-native";
 import { useRouter } from "expo-router";
-import { supabase } from "../utils/supabase";
+import { supabase } from "../../../utils/supabase";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
   const router = useRouter();
 
   const handleLogin = async () => {
@@ -53,6 +52,11 @@ export default function LoginScreen() {
         color="#841584"
         disabled={loading}
       />
+      <Button
+        title="Create Account"
+        onPress={() => router.push("/auth/register")}
+        color="#841584"
+      />
     </View>
   );
 }
@@ -62,7 +66,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 20,
-    marginBottom: 300,
   },
   input: {
     height: 40,
